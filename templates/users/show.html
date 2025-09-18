@@ -1,0 +1,19 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User-{{ user.id }}</title>
+</head>
+<body>
+    <div>id = {{ user.id }}</div>
+    <div>nickname = {{ user.name }}</div>
+    <div>Email = {{ user.email }}</div>
+
+    <form action="{{ url_for('users_delete', id=user.id) }}" method="post"
+    onsubmit="return confirm('Are you sure you want to delete user? This action cannot be undone.');">
+    <input type="submit" value="Remove">
+    </form>
+
+    <p><a href="{{ url_for('users_get') }}">Назад к списку пользователей</a></p>
+</body>
+</html>
